@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalApi", "ExternalApi\ExternalApi.csproj", "{037F417A-3EAA-4D79-AA5F-7C4987BF7F46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1DataBase", "1DataBase", "{B9C5915E-E372-4EFB-B76F-74FB2D6A10C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FzDataBase.SunnyTeach", "FzDataBase.SunnyTeach\FzDataBase.SunnyTeach.csproj", "{49AE1630-787E-49AA-ACA2-3B3E20329290}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{037F417A-3EAA-4D79-AA5F-7C4987BF7F46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{037F417A-3EAA-4D79-AA5F-7C4987BF7F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{037F417A-3EAA-4D79-AA5F-7C4987BF7F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{037F417A-3EAA-4D79-AA5F-7C4987BF7F46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49AE1630-787E-49AA-ACA2-3B3E20329290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49AE1630-787E-49AA-ACA2-3B3E20329290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49AE1630-787E-49AA-ACA2-3B3E20329290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49AE1630-787E-49AA-ACA2-3B3E20329290}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{49AE1630-787E-49AA-ACA2-3B3E20329290} = {B9C5915E-E372-4EFB-B76F-74FB2D6A10C6}
+	EndGlobalSection
+EndGlobal

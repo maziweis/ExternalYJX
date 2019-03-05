@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SunnyTeachModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Tb_Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="SchoolName" Type="nvarchar(max)" />
+          <Property Name="SchoollID" Type="int" />
+          <Property Name="AdminAccount" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="500" />
+          <Property Name="SchemeID" Type="int" />
+          <Property Name="SchemeName" Type="nvarchar" MaxLength="100" />
+          <Property Name="OrderMon" Type="int" />
+          <Property Name="SchemeNum" Type="int" />
+          <Property Name="AccessNum" Type="int" />
+          <Property Name="SchemeMoney" Type="money" />
+          <Property Name="OptType" Type="int" />
+          <Property Name="SchemeStateNm" Type="nvarchar" MaxLength="50" />
+          <Property Name="SchemeTypeID" Type="int" />
+          <Property Name="SchemeTypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SchemeNo" Type="varchar" MaxLength="255" />
+          <Property Name="SchemeDate" Type="datetime" />
+          <Property Name="Ecordercode" Type="varchar" MaxLength="50" />
+          <Property Name="Trial" Type="int" />
+          <Property Name="BossOrderID" Type="varchar(max)" />
+          <Property Name="CustID" Type="bigint" />
+          <Property Name="CustCode" Type="varchar" MaxLength="50" />
+          <Property Name="CustType" Type="int" />
+          <Property Name="RegisterSource" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="50" />
+          <Property Name="BeginTime" Type="bigint" />
+          <Property Name="EndTime" Type="bigint" />
+          <Property Name="CustName" Type="varchar" MaxLength="255" />
+          <Property Name="UserID" Type="varchar" MaxLength="50" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="UserLias" Type="nvarchar" MaxLength="255" />
+          <Property Name="Produectparas" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Tb_UserScheme">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="bigint" Nullable="false" />
+          <Property Name="ID" Type="varchar" MaxLength="255" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Useralias" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="BeginTime" Type="bigint" />
+          <Property Name="EndTime" Type="bigint" />
+          <Property Name="ApplyNo" Type="varchar" MaxLength="255" />
+          <Property Name="EcorderCode" Type="varchar" MaxLength="255" />
+          <Property Name="CustID" Type="bigint" />
+          <Property Name="ProductCode" Type="varchar" MaxLength="50" />
+          <Property Name="OptType" Type="int" />
+          <Property Name="IsDelete" Type="int" />
+          <Property Name="Paras" Type="nvarchar(max)" />
+          <Property Name="UserType" Type="int" />
+        </EntityType>
+        <Association Name="FK_TB_USERS_REFERENCE_TB_ORDER">
+          <End Role="Tb_Order" Type="Self.Tb_Order" Multiplicity="0..1" />
+          <End Role="Tb_UserScheme" Type="Self.Tb_UserScheme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_Order">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tb_UserScheme">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SunnyTeachModelStoreContainer">
+          <EntitySet Name="Tb_Order" EntityType="Self.Tb_Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_UserScheme" EntityType="Self.Tb_UserScheme" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TB_USERS_REFERENCE_TB_ORDER" Association="Self.FK_TB_USERS_REFERENCE_TB_ORDER">
+            <End Role="Tb_Order" EntitySet="Tb_Order" />
+            <End Role="Tb_UserScheme" EntitySet="Tb_UserScheme" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SunnyTeachModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Tb_Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SchoolName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SchoollID" Type="Int32" />
+          <Property Name="AdminAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SchemeID" Type="Int32" />
+          <Property Name="SchemeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OrderMon" Type="Int32" />
+          <Property Name="SchemeNum" Type="Int32" />
+          <Property Name="AccessNum" Type="Int32" />
+          <Property Name="SchemeMoney" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="OptType" Type="Int32" />
+          <Property Name="SchemeStateNm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SchemeTypeID" Type="Int32" />
+          <Property Name="SchemeTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SchemeNo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SchemeDate" Type="DateTime" Precision="3" />
+          <Property Name="Ecordercode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Trial" Type="Int32" />
+          <Property Name="BossOrderID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CustID" Type="Int64" />
+          <Property Name="CustCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustType" Type="Int32" />
+          <Property Name="RegisterSource" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BeginTime" Type="Int64" />
+          <Property Name="EndTime" Type="Int64" />
+          <Property Name="CustName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserLias" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Produectparas" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tb_UserScheme" Relationship="Self.FK_TB_USERS_REFERENCE_TB_ORDER" FromRole="Tb_Order" ToRole="Tb_UserScheme" />
+        </EntityType>
+        <EntityType Name="Tb_UserScheme">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int64" Nullable="false" />
+          <Property Name="ID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Useralias" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BeginTime" Type="Int64" />
+          <Property Name="EndTime" Type="Int64" />
+          <Property Name="ApplyNo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EcorderCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CustID" Type="Int64" />
+          <Property Name="ProductCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OptType" Type="Int32" />
+          <Property Name="IsDelete" Type="Int32" />
+          <Property Name="Paras" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserType" Type="Int32" />
+          <NavigationProperty Name="Tb_Order" Relationship="Self.FK_TB_USERS_REFERENCE_TB_ORDER" FromRole="Tb_UserScheme" ToRole="Tb_Order" />
+        </EntityType>
+        <Association Name="FK_TB_USERS_REFERENCE_TB_ORDER">
+          <End Role="Tb_Order" Type="Self.Tb_Order" Multiplicity="0..1" />
+          <End Role="Tb_UserScheme" Type="Self.Tb_UserScheme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_Order">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tb_UserScheme">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SunnyTeachEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Tb_Order" EntityType="Self.Tb_Order" />
+          <EntitySet Name="Tb_UserScheme" EntityType="Self.Tb_UserScheme" />
+          <AssociationSet Name="FK_TB_USERS_REFERENCE_TB_ORDER" Association="Self.FK_TB_USERS_REFERENCE_TB_ORDER">
+            <End Role="Tb_Order" EntitySet="Tb_Order" />
+            <End Role="Tb_UserScheme" EntitySet="Tb_UserScheme" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SunnyTeachModelStoreContainer" CdmEntityContainer="SunnyTeachEntities">
+          <EntitySetMapping Name="Tb_Order">
+            <EntityTypeMapping TypeName="SunnyTeachModel.Tb_Order">
+              <MappingFragment StoreEntitySet="Tb_Order">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+                <ScalarProperty Name="SchoollID" ColumnName="SchoollID" />
+                <ScalarProperty Name="AdminAccount" ColumnName="AdminAccount" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="SchemeID" ColumnName="SchemeID" />
+                <ScalarProperty Name="SchemeName" ColumnName="SchemeName" />
+                <ScalarProperty Name="OrderMon" ColumnName="OrderMon" />
+                <ScalarProperty Name="SchemeNum" ColumnName="SchemeNum" />
+                <ScalarProperty Name="AccessNum" ColumnName="AccessNum" />
+                <ScalarProperty Name="SchemeMoney" ColumnName="SchemeMoney" />
+                <ScalarProperty Name="OptType" ColumnName="OptType" />
+                <ScalarProperty Name="SchemeStateNm" ColumnName="SchemeStateNm" />
+                <ScalarProperty Name="SchemeTypeID" ColumnName="SchemeTypeID" />
+                <ScalarProperty Name="SchemeTypeName" ColumnName="SchemeTypeName" />
+                <ScalarProperty Name="SchemeNo" ColumnName="SchemeNo" />
+                <ScalarProperty Name="SchemeDate" ColumnName="SchemeDate" />
+                <ScalarProperty Name="Ecordercode" ColumnName="Ecordercode" />
+                <ScalarProperty Name="Trial" ColumnName="Trial" />
+                <ScalarProperty Name="BossOrderID" ColumnName="BossOrderID" />
+                <ScalarProperty Name="CustID" ColumnName="CustID" />
+                <ScalarProperty Name="CustCode" ColumnName="CustCode" />
+                <ScalarProperty Name="CustType" ColumnName="CustType" />
+                <ScalarProperty Name="RegisterSource" ColumnName="RegisterSource" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="BeginTime" ColumnName="BeginTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="CustName" ColumnName="CustName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserLias" ColumnName="UserLias" />
+                <ScalarProperty Name="Produectparas" ColumnName="Produectparas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_UserScheme">
+            <EntityTypeMapping TypeName="SunnyTeachModel.Tb_UserScheme">
+              <MappingFragment StoreEntitySet="Tb_UserScheme">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Useralias" ColumnName="Useralias" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="BeginTime" ColumnName="BeginTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="ApplyNo" ColumnName="ApplyNo" />
+                <ScalarProperty Name="EcorderCode" ColumnName="EcorderCode" />
+                <ScalarProperty Name="CustID" ColumnName="CustID" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="OptType" ColumnName="OptType" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Paras" ColumnName="Paras" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
